@@ -1,0 +1,24 @@
+.tableFixHead         
+    { 
+    overflow-y: auto; height:500px; overflow-x: auto;width: 100%;
+    }
+    .tableFixHead thead th 
+    { 
+    position: sticky; top: 0;
+    background-color:#333d6b;
+  z-index:4;
+  vertical-align: top; 
+    }
+    .hovers:hover {
+      background-color: #333d6b ;
+      color: white;
+      border-radius:20px 20px 20px 20px ;
+        }
+        tr:nth-child(even) {
+          background-color: lightgray;
+        }
+  th{
+            font-size: 11px;background-color:#002060;
+            border: 1px solid #666;color:#eee;
+            vertical-align: middle;text-align: center;
+        }

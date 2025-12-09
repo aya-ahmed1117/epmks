@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>لعبة تطابق الأرقام</title>
+  <style>
+    body { font-family: Arial; text-align: center; background: #f0f0f0; margin-top: 50px; }
+    h2 { margin-bottom: 10px; }
+    .board { display: grid; grid-template-columns: repeat(4, 100px); gap: 10px; justify-content: center; }
+    .cell {
+      background: #fff; border: 2px solid #ccc; font-size: 24px;
+      width: 100px; height: 100px; display: flex; align-items: center;
+      justify-content: center; cursor: pointer; user-select: none;
+    }
+    .matched { background: #aaf0d1; color: #000; cursor: default; }
+  </style>
+</head>
+<body>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; ">
+<iframe style="width: 100%; height: 550px; overflow: hidden; border: none;" src="https://playpager.com/embed/solitaire/index.html" title="Solitaire Game" scrolling="no"></iframe>
+
+<iframe style="width: 100%; height: 550px; overflow: hidden; border: none;" src="https://playpager.com/embed/sudoku/index.html" title="Sudoku Game" scrolling="no"></iframe>
+
+<iframe style="width: 100%; height: 550px; overflow: hidden; border: none;" src="https://playpager.com/embed/wordpuzzle/index.html" title="Word Puzzle" scrolling="no"></iframe>
+
+<iframe style="width: 100%; height: 550px; overflow: hidden; border: none;" src="https://playpager.com/embed/cubes/index.html" title="Cubes Game" scrolling="no"></iframe>
+    </div>
+
+
+
+<h2>🎯 لعبة تطابق الأرقام</h2>
+<p>اختار مربعين متشابهين!</p>
+
+<div class="board" id="board"></div>
+
+<script>
+  const board = document.getElementById('board');
+  const numbers = [...Array(8).keys(), ...Array(8).keys()].sort(() => 0.5 - Math.random());
+  let first = null, lock = false;
+
+  numbers.forEach((num, index) => {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    cell.dataset.value = num;
+    cell.textContent = '';
+    board.appendChild(cell);
+
+    cell.addEventListener('click', () => {
+      if (lock || cell.classList.contains('matched') || cell.textContent !== '') return;
+
+      cell.textContent = num;
+      if (!first) {
+        first = cell;
+      } else {
+        lock = true;
+        setTimeout(() => {
+          if (first.dataset.value === cell.dataset.value) {
+            first.classList.add('matched');
+            cell.classList.add('matched');
+          } else {
+            first.textContent = '';
+            cell.textContent = '';
+          }
+          first = null;
+          lock = false;
+        }, 800);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
