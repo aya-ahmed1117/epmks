@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <title>SamY</title>
+  </head>
+  <body>
+    <audio id="audio" src="https://ia802904.us.archive.org/30/items/Quran_One_Part_Mp3_uP_bY_mUSLEm/001-_up_by_muslem.mp3" controls muted="true" ></audio>
+ 
+  <script src="js/ajaxjquery.min.js"></script>
+  <script 
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <audio id="streamPlayer" controls>
+<source src="https://ia802904.us.archive.org/30/items/Quran_One_Part_Mp3_uP_bY_mUSLEm/001-_up_by_muslem.mp3" type="audio/mpeg"> </audio>
+
+<br> <br>
+<button type="button" id="btn_01" onClick="do_BtnClick( 1 )"> Stream #1 </button>
+<button type="button" id="btn_02" onClick="do_BtnClick( 2 )"> Stream #2 </button>
+<button type="button" id="btn_03" onClick="do_BtnClick( 3 )"> Stream #3 </button>
+<br>
+
+<script>
+
+var myAudio = document.getElementById("streamPlayer");
+
+var stream1 = "https://ia802904.us.archive.org/30/items/Quran_One_Part_Mp3_uP_bY_mUSLEm/001-_up_by_muslem.mp3"; //Stream Guys 1
+var stream3 = "https://imaginesouth-heliusmedia.radioca.st/stream/1/"; //Imagine Radio
+var stream2 = "http://5.189.142.165:8032/stream/1/"; //70s/80s
+
+function do_BtnClick ( radioNum )
+{
+    if( radioNum == 1) { myAudio.src = stream1; }
+    if( radioNum == 2) { myAudio.src = stream2; }
+    if( radioNum == 3) { myAudio.src = stream3; }
+    
+    myAudio.load(); myAudio.play();
+}
+
+</script>
+<div id="demo"></div>
+<div class="selector"></div>
+    <script type="text/javascript">
+    $.ajax({
+      //options...
+      success: function(data) {
+        //do stuff
+        $('.selector', data).timeago();
+      }
+    });
+    var last_d = '2023-06-25 09:00:55';
+
+    var startTime = new Date().getTime();
+
+  //Place this code inside the success callback of your AJAX function
+  var endTime = new Date().getTime();
+      console.log(endTime);
+  
+  var diff = ((endTime - startTime) > (60 * 1000));
+  if ((endTime - startTime) > (60 * 1000)) {
+      //Took longer than 60 seconds
+      var total = diff - last_d;
+      console.log(total);
+      return total
+  }
+
+
+    </script>
+
+    <!-- <div><a onclick="play_audio('audio',20.01,3.2);">frfrf</a></div> -->
+    <script>
+      window.onload = function() {
+         
+     
+      function myClock() {         
+   setTimeout(function() {   
+    const d = new Date();
+    const n = d.toLocaleTimeString();
+    document.getElementById("demo").innerHTML = n; 
+    myClock(); 
+    console.log(n);            
+  }, 1000)
+  }
+  myClock();
+
+   var start = new Date();
+          var lastSeen = localStorage.getItem("lastSeen");
+    
+          if (lastSeen) {
+              alert("User last seen in " + lastSeen);
+          } else {
+              alert("User first time logged in page")
+          }
+    localStorage.setItem("lastSeen", new Date()); 
+       
+   };
+
+    </script>
+  </body>
+</html>
+

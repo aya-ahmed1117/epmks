@@ -1,0 +1,18 @@
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 0000 0000 0000 0000 0000 0000
+0000 0000 
+
+
+<VirtualHost *:8081>
+  ServerName "C:/wamp64/www/wfm"
+  ServerAlias workforce.local
+  <Directory "C:/wamp64/www/wfm">
+    
+    AllowOverride All
+    Require all granted
+  </Directory>
+</VirtualHost>

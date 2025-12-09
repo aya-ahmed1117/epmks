@@ -1,0 +1,24 @@
+sThis.next().keypress(function(event){
+	if ((event.keyCode || event.which) == 13)
+    {   
+		$(this).prev().val($.trim($('option:selected', this).text()));
+		$(this).next().val($('option:selected', this).val());
+		$(this).hide();
+		console.log($(this).next().val());
+    }
+});
+
+input searchInput ->  text() 
+select searchSelect 
+input value    -> val()
+
+
+$('input').val();
+ $('a').text();
+ $('div').text();
+
+
+$('div').click(function(){
+	$(this).hide();
+	$(div).hide();
+});
